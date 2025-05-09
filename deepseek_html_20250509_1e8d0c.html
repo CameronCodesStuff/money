@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 INSANE TEEN HUSTLE HUB 🔥</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap');
+        
+        :root {
+            --neon-pink: #ff2a6d;
+            --neon-blue: #05d9e8;
+            --neon-purple: #d300c5;
+            --neon-green: #00ff9d;
+            --neon-yellow: #f9f002;
+        }
+        
+        body {
+            background-color: #000;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 42, 109, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 30%, rgba(5, 217, 232, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 50% 80%, rgba(211, 0, 197, 0.1) 0%, transparent 20%);
+        }
+        
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 3rem;
+            margin: 0;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue), var(--neon-purple), var(--neon-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--neon-yellow);
+            margin-top: 10px;
+            text-shadow: 0 0 5px var(--neon-yellow);
+        }
+        
+        .hustle-section {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--neon-blue);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(5, 217, 232, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .hustle-section:hover {
+            box-shadow: 0 0 30px rgba(5, 217, 232, 0.6);
+            transform: translateY(-5px);
+        }
+        
+        .hustle-header {
+            background: linear-gradient(90deg, rgba(5, 217, 232, 0.2), rgba(255, 42, 109, 0.2));
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+        
+        .hustle-header:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+        
+        .hustle-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease;
+        }
+        
+        .hustle-content.active {
+            padding: 20px;
+            max-height: 2000px;
+            transition: max-height 1s ease-in, padding 0.5s ease;
+        }
+        
+        .hustle-method {
+            background: rgba(15, 15, 15, 0.8);
+            border-left: 4px solid var(--neon-pink);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 5px 5px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hustle-method::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 42, 109, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .hustle-method:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .hustle-method h3 {
+            color: var(--neon-green);
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+        
+        .steps {
+            margin-left: 20px;
+        }
+        
+        .steps li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .steps li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--neon-yellow);
+            animation: bounce 0.5s infinite alternate;
+        }
+        
+        .resources {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px dashed var(--neon-purple);
+            border-radius: 5px;
+        }
+        
+        .resources h4 {
+            color: var(--neon-purple);
+            margin-top: 0;
+        }
+        
+        .resources a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .resources a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+        
+        .profit-meter {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--neon-green);
+            border-radius: 10px;
+            padding: 10px 15px;
+            font-size: 1.2rem;
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+            z-index: 100;
+        }
+        
+        .profit-meter span {
+            color: var(--neon-green);
+            font-weight: bold;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+            }
+            to {
+                text-shadow: 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink), 0 0 40px var(--neon-purple);
+            }
+        }
+        
+        @keyframes bounce {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(5px);
+            }
+        }
+        
+        .toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .toggle.active {
+            transform: rotate(90deg);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid rgba(5, 217, 232, 0.3);
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Crazy animations for scroll */
+        [data-animate] {
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+        
+        [data-animate="fadeIn"] {
+            transform: translateY(20px);
+        }
+        
+        [data-animate="slideLeft"] {
+            transform: translateX(-50px);
+        }
+        
+        [data-animate="slideRight"] {
+            transform: translateX(50px);
+        }
+        
+        [data-animate].animated {
+            opacity: 1;
+            transform: translate(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <div class="container">
+        <header>
+            <h1 data-animate="fadeIn">💰 INSANE TEEN HUSTLE HUB 💰</h1>
+            <div class="subtitle" data-animate="slideLeft">$1K/DAY EDITION • TOP SECRET METHODS • 100% LEGAL</div>
+        </header>
+        
+        <!-- Flipping Section -->
+        <div class="hustle-section">
+            <div class="hustle-header" onclick="toggleSection(this)">
+                <span>🔄 FLIPPING & RESELLING</span>
+                <span class="toggle">➤</span>
+            </div>
+            <div class="hustle-content">
+                <div class="hustle-method">
+                    <h3>👟 Sneaker Flipping</h3>
+                    <ul class="steps">
+                        <li>Find cheap Jordans/Yeezys at thrift stores, Facebook Marketplace, or OfferUp</li>
+                        <li>Clean them up (use sneaker cleaning kits)</li>
+                        <li>Resell on StockX, GOAT, or eBay for 2-5x profit</li>
+                        <li>Pro Tip: Target limited editions and retro releases</li>
+                    </ul>
+                    <div class="resources">
+                        <h4>🔥 Resources:</h4>
+                        <p>• <a href="https://stockx.com" target="_blank">StockX</a> - Check market prices</p>
+                        <p>• <a href="https://www.reddit.com/r/Flipping/" target="_blank">r/Flipping</a> - Flipping community</p>
+                    </div>
+                </div>
+                
+                <div class="hustle-method">
+                    <h3>📱 Electronics Flipping</h3>
+                    <ul class="steps">
+                        <li>Look for broken iPhones on Craigslist (people sell them cheap thinking they're worthless)</li>
+                        <li>Fix simple issues (battery replacement, screen repair - YouTube tutorials)</li>
+                        <li>Resell on Swappa or eBay for 50-100% profit</li>
+                        <li>Pro Tip: Target iPhone 11-13 models - highest demand</li>
+                    </ul>
+                    <div class="resources">
+                        <h4>📚 Learning:</h4>
+                        <p>• <a href="https://www.ifixit.com" target="_blank">iFixit</a> - Repair guides</p>
+                        <p>• <a href="https://www.youtube.com/c/JerryRigEverything" target="_blank">JerryRigEverything</a> - Repair videos</p>
+                    </div>
+                </div>
+                
+                <div class="hustle-method">
+                    <h3>🚗 Car Flipping (Advanced)</h3>
+                    <ul class="steps">
+                        <li>Find cars under $2k with minor issues (check Craigslist "by owner" section)</li>
+                        <li>Fix cosmetic issues (deep clean, minor repairs)</li>
+                        <li>Resell for $1k-$3k profit (check your local laws)</li>
+                        <li>Pro Tip: Target Honda Civics and Toyota Camrys - easiest to sell</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Online Business Section -->
+        <div class="hustle-section">
+            <div class="hustle-header" onclick="toggleSection(this)">
+                <span>🌐 ONLINE BUSINESS</span>
+                <span class="toggle">➤</span>
+            </div>
+            <div class="hustle-content">
+                <div class="hustle-method">
+                    <h3>🛒 Dropshipping</h3>
+                    <ul class="steps">
+                        <li>Find trending products on TikTok (#TikTokMadeMeBuyIt)</li>
+                        <li>Set up Shopify store ($29/month)</li>
+                        <li>Run TikTok ads targeting Gen Z</li>
+                        <li>Profit margin: 30-50% per sale</li>
+                        <li>Pro Tip: Start with one winning product before expanding</li>
+                    </ul>
+                    <div class="resources">
+                        <h4>🚀 Tools:</h4>
+                        <p>• <a href="https://www.shopify.com" target="_blank">Shopify</a> - Easiest store builder</p>
+                        <p>• <a href="https://www.tiktok.com/business/en" target="_blank">TikTok Ads</a> - $100 free ad credit</p>
+                    </div>
+                </div>
+                
+                <div class="hustle-method">
+                    <h3>👕 Print-on-Demand</h3>
+                    <ul class="steps">
+                        <li>Design funny/niche t-shirts (use Canva)</li>
+                        <li>Upload to Printify or Redbubble</li>
+                        <li>Promote on Pinterest/TikTok</li>
+                        <li>Passive income potential: $100-$500/month per design</li>
+                        <li>Pro Tip: Target micro-niches (e.g., "Gaming Dads Who Grill")</li>
+                    </ul>
+                </div>
+                
+                <div class="hustle-method">
+                    <h3>📝 Digital Products</h3>
+                    <ul class="steps">
+                        <li>Create PDF guides (e.g., "How to Get Girls" or "Fortnite Hacks")</li>
+                        <li>Sell on Gumroad or Etsy</li>
+                        <li>Price at $10-$50</li>
+                        <li>Pro Tip: Repurpose content from forums/Reddit (with your own spin)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Freelancing Section -->
+        <div class="hustle-section">
+            <div class="hustle-header" onclick="toggleSection(this)">
+                <span>💻 FREELANCING</span>
+                <span class="toggle">➤</span>
+            </div>
+            <div class="hustle-content">
+                <div class="hustle-method">
+                    <h3>🎬 Video Editing</h3>
+                    <ul class="steps">
+                        <li>Learn basic editing (DaVinci Resolve is free)</li>
+                        <li>Create sample edits using movie clips</li>
+                        <li>Offer services on Fiverr/Upwork ($50-$200 per video)</li>
+                        <li>Pro Tip: Specialize in TikTok/YouTube Shorts edits</li>
+                    </ul>
+                </div>
+                
+                <div class="hustle-method">
+                    <h3>✍️ Copywriting</h3>
+                    <ul class="steps">
+                        <li>Study viral Twitter threads and sales pages</li>
+                        <li>Offer email/social media copy for businesses</li>
+                        <li>Charge $100-$500 per project</li>
+                        <li>Pro Tip: Start with local businesses needing better Google ads</li>
+                    </ul>
+                </div>
+                
+                <div class="hustle-method">
+                    <h3>🖥️ Web Design</h3>
+                    <ul class="steps">
+                        <li>Learn basic WordPress or Wix</li>
+                        <li>Find small businesses with bad websites</li>
+                        <li>Charge $500-$2000 per site</li>
+                        <li>Pro Tip: Offer monthly maintenance for recurring revenue</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Local Services Section -->
+        <div class="hustle-section">
+            <div class="hustle-header" onclick="toggleSection(this)">
+                <span>🔧 LOCAL SERVICES</span>
+                <span class="toggle">➤</span>
+            </div>
+            <div class="hustle-content">
+                <div class="hustle-method">
+                    <h3>💦 Pressure Washing</h3>
+                    <ul class="steps">
+                        <li>Rent equipment from Home Depot ($50/day)</li>
+                        <li>Charge $150-$300 per driveway</li>
+                        <li>Can make $500+ on weekends</li>
+                        <li>Pro Tip: Offer package deals (driveway + sidewalk)</li>
+                    </ul>
+                </div>
+                
+                <div class="hustle-method">
+                    <h3>🚗 Mobile Car Detailing</h3>
+                    <ul class="steps">
+                        <li>Basic kit: $100 (vacuum, cleaners, microfiber)</li>
+                        <li>Charge $100-$300 per car</li>
+                        <li>Target luxury car owners</li>
+                        <li>Pro Tip: Offer ceramic coating for $500+</li>
+                    </ul>
+                </div>
+                
+                <div class="hustle-method">
+                    <h3>🗑️ Junk Removal</h3>
+                    <ul class="steps">
+                        <li>Rent truck or use your parents' SUV</li>
+                        <li>Charge $100-$300 per load</li>
+                        <li>Dump fees: $20-$50</li>
+                        <li>Pro Tip: Post on Nextdoor/Facebook groups</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            Made with 💰 by HustleGPT • Not financial advice • Results vary
+            <br>
+            <small>Refresh page for more animations!</small>
+        </footer>
+    </div>
+    
+    <div class="profit-meter">
+        Your potential profit today: <span id="profit-counter">$0</span>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles.js
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": ["#05d9e8", "#ff2a6d", "#d300c5"]
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#05d9e8",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+        
+        // Toggle sections
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            const toggle = header.querySelector('.toggle');
+            
+            content.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+        
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('[data-animate]');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on load
+        
+        // Profit counter animation
+        let profit = 0;
+        const targetProfit = 1000;
+        const counter = document.getElementById('profit-counter');
+        const interval = setInterval(() => {
+            profit += 23; // Random increment
+            if (profit >= targetProfit) {
+                profit = targetProfit;
+                clearInterval(interval);
+            }
+            counter.textContent = `$${profit}`;
+        }, 100);
+    </script>
+</body>
+</html>
